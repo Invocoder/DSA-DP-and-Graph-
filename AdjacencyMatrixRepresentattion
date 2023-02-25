@@ -17,9 +17,25 @@ int main()
     }
     return 0;
 }
+
+//Disadvantage
 //SPACE COMPLEXITY
 // O(N^2) 
 // N = 10^5
 // SPACE = 10^5 * 10^5.
 // We can't allocate such amount of contiguos memeory as array.
 // So we need some other representation as matrix thingy doesn't work.
+
+
+//Advantage
+// i,j connected? i,j weight?
+
+// if(Graph[i][j]==1)
+// {
+//     cout<<"connected";
+// }
+
+// O(1)
+
+//i, j weight
+// G[i][j]   ---> O(1)
