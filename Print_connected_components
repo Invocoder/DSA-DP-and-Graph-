@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 1e3+10;
+vector<int> G[N];
+bool vis[N];
+vector<vector<int>> cc;
+vector<int>curr_cc;
+void dfs(int vertex)
+{  
+   cc.push_back(vertex);
+   vis[vertex]=true;
+   for(int child: G[vertex])
+   {
+      if(vis[child]) 
+      { 
+         continue;
+      }
+      dfs(child);
+   }
+}
+int main()
+{  
+   int t;
+   cin>>t;
+   while(t--)
+   {
+      int n,m;
+      cin>>n>>m;
+      for(int i=0;i<m;i++)
+      {
+         int u,v;
+         cin>>u>>v;
+         G[u].push_back(v);
+         G[v].push_back(u);
+      }
+      for(int i=1;i<n;i++)
+      {  
+         if(vis[i])
+         {
+           continue;
+         }
+         curr_cc.clear();
+         dfs(i);
+         cc.push_back(curr_cc);
+      }
+      for(int i=0;i<cc.size();i++)
+      {
+         cout<<cc[i];
+      }
+      cout<<endl;
+   }
+   return 0;
+}
